@@ -17,7 +17,7 @@ public class Automation {
 
         // Email ID of the sender
         String sender = "sshabesh10@gmail.com";
-        String senderPassword = "chwt hajj rspy gdev";
+        String senderPassword = "";
 
         // using google's smtp as the host
         String host = "smtp.gmail.com";
