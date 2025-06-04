@@ -19,16 +19,17 @@ public class Automation {
             ArrayList<String> recipients = new ArrayList<>();
 
             // adding email ids manually
-            recipients.add("shaheethsm@gmail.com");
+            // recipients.add("shaheethsm@gmail.com");
             recipients.add("shabeshvaran@gmail.com");
-            recipients.add("sasi.d9864@gmail.com");
-            recipients.add("srivisnu25@gmail.com");
+            // recipients.add("sasi.d9864@gmail.com");
+            // recipients.add("srivisnu25@gmail.com");
             recipients.add("sivammfsl@gmail.com");
             recipients.add("jayareddy0609@gmail.com");
 
             // Email ID of the sender
-            String sender = "sshabesh10@gmail.com";
-            String senderPassword = "";
+            String sender = System.getenv("EMAIL_USERNAME");
+            String senderPassword = System.getenv("EMAIL_PASSWORD");
+
 
             // using google's smtp as the host
             String host = "smtp.gmail.com";
