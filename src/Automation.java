@@ -80,7 +80,7 @@ public class Automation {
             }
 
             // setting the subject and adding text to the email
-            message.setSubject("Check out this insipirational quote");
+            message.setSubject("Check out this quote");
             message.setText("Go chase your goals, you've go this!");
 
             // adding image to the content
@@ -89,7 +89,7 @@ public class Automation {
 
             // Create a MimeBodyPart for the image attachment
             BodyPart messageBodyPart = new MimeBodyPart();
-            DataSource fds = new FileDataSource("C:\\Users\\LENOVO\\Desktop\\Email automation\\image.jpg");
+            DataSource fds = new FileDataSource("image.jpg");
             messageBodyPart.setDataHandler(new DataHandler(fds));
             messageBodyPart.setFileName("image.jpg");
 
@@ -103,8 +103,9 @@ public class Automation {
             for (String recipient : recipients) {
                 message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
                 // Sending email
-                Transport.send(message);
             }
+            Transport.send(message);
+
 
             System.out.println("Mails successfully sent");
         } catch (MessagingException e) {
