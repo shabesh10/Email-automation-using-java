@@ -1,0 +1,34 @@
+name: Weekly Email Automation
+
+on:
+  schedule:
+    - cron: '30 4 * * 5'  # Friday 10:00 AM IST
+    - cron: '30 4 * * 6'  # Saturday 10:00 AM IST
+    - cron: '30 4 * * 0'  # Sunday 10:00 AM IST
+  workflow_dispatch:  # allows manual run from GitHub UI
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Java
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Compile Automation.java
+      run: |
+        mkdir -p out
+        javac -cp "lib/*" -d out src/Automation.java
+
+    - name: Run Email Automation
+      run: |
+        java -cp "lib/*:out" Automation
+      env:
+        EMAIL_USERNAME: ${{ secrets.EMAIL_USERNAME }}
+        EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
