@@ -19,7 +19,7 @@ This project:
 
 ## 🧠 Why This Exists
 
-I manually sent inspirational emails to friends every week — for over 10 years. This project automates that using nothing but:
+I manually sent inspirational emails to friends every week. This project automates that using nothing but:
 - Java for logic
 - GitHub Actions for scheduling
 
